@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f2f2;
+    
+}
+
+header {
+    background: linear-gradient(90deg, #b511cb, #7ea7ee); /* Gradiente lineal */
+    padding: 15px;
+    color: white;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.banner {
+    position: relative;
+    background-image: url("../../../../public/assets/banner.webp");
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    font-size: larger;
+    text-align: center;
+    padding: 100px 20px;
+    color: black;
+}
+
+
+.btn {
+    display: inline-block;
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.productos {
+    text-align: center;
+    padding: 20px;
+}
+
+.grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.producto {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.producto img {
+    max-width: 100%;
+    border-radius: 5px;
+}

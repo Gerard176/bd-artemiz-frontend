@@ -13,11 +13,11 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   loginForm: FormGroup;
   isFormSubmitted: boolean = false;
-
+  credencialesIncorrectas: boolean = false;
   constructor( private router: Router, private authService: AuthService) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(7)])
+      password: new FormControl('', [Validators.required, Validators.minLength(8)])
     })
   }
 
@@ -28,9 +28,13 @@ export class LoginComponent {
       this.authService.login(email, password).subscribe({
         next: (res) => {
           console.log("Login exitoso:", res);
+          this.authService.setSession(res.token);
           this.router.navigate(['/']);
         },
-        error: (error) => console.error("Error en el login:", error)
+        error: (error) => {
+          console.error("Error en el login:", error);
+          this.credencialesIncorrectas = true;
+        }
       }
         
       );

@@ -10,49 +10,6 @@ body {
     align-items: center;
 }
 
-/* Estilos del encabezado */
-header {
-    background: linear-gradient(90deg, #b511cb, #7ea7ee);
-    padding: 15px;
-    margin-bottom: 30px;
-    color: white;
-    text-align: center;
-    width: 100%;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 10px 20px;
-    width: 100%;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-
-}
-
-nav ul li a:hover {
-    color: #f5f7f8;
-}
-
 /* Contenedor principal */
 .container {
     text-align: center;

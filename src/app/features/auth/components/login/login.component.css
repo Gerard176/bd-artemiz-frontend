@@ -8,36 +8,7 @@ body {
     
 }
 /* Estilos del encabezado */
-header {
-    background: linear-gradient(90deg, #b511cb, #7ea7ee); /* Gradiente lineal */
-    padding: 15px;
-    margin-bottom: 30px;
-    color: white;
-    text-align: center;
 
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-}
-
-nav ul li {
-    margin: 0 10px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
 
 .logo {
     font-size: 24px;
@@ -54,8 +25,8 @@ nav ul li a {
     width: 100%;
     max-width: 350px;
     position: absolute;
-    top: 14%;
-    left: 37%;
+    top: 10%;
+    left: 38%;
     width: 25%;
     
 }

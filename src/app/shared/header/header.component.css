@@ -1,0 +1,41 @@
+header {
+    background: linear-gradient(90deg, #b511cb, #7ea7ee); /* Gradiente lineal */
+    color: white;
+    display: flex;
+    height: 70px;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px;    
+}
+
+
+ul{
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+li{
+    margin: 10px 5px;
+    align-content: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.imgUsuario{
+    width: 50px;
+    border-radius: 50px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}

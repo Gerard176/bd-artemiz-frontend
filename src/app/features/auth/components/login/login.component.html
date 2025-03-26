@@ -8,14 +8,7 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="logo">Artemiz</div>
-            <ul>
-                <li><a href="">Inicio</a></li>
-            </ul>
-        </nav>
-    </header>
+
     <div class="form-container">
         <form [formGroup]="loginForm">
             <div class="logo">
@@ -23,6 +16,7 @@
                 <img src="assets/retratoModerno.jpg" alt="logo">
             </div>
             <div class="container">
+                <label *ngIf="credencialesIncorrectas" class="text-danger">Gmail o contraseña incorrectos</label>
                 <div class="email">
                     <label for="email">Correo electronico</label>
                     <input type="text" formControlName="email">
@@ -47,6 +41,7 @@
                 <button class="button" type="submit" (click)="onLogin()">Iniciar sesión</button>
 
                 <p class="login-link">No tienes cuenta <a href="/register">¡Registrate aqui!</a></p>
+                <p class="login-link"><a href="">Volver al inicio</a></p>
             </div>
         </form>
     </div>

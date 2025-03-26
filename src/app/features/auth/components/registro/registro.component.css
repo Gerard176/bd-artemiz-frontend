@@ -82,3 +82,7 @@ body {
     text-decoration: underline;
     cursor: pointer;
 }
+.text-danger{
+    color: red;
+    font-size: small;
+}

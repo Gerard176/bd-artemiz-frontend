@@ -13,8 +13,10 @@ export class HeaderComponent {
   userData: any;
   constructor(private router: Router,private authService: AuthService){
     this.isloggedIn =  authService.isLoggedIn();
-    this.getProfile();
-    console.log("hola");
+    if (this.isloggedIn) {
+      this.getProfile();
+      console.log("hola");
+    }
      
   }
   getProfile(): void{

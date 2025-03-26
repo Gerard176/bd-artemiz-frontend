@@ -1,47 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artemiz</title>
 </head>
+
 <body>
 
-    <form action="">
-      <div class="container">
-          <h1 class="h1">Registrate aqui!</h1>
-          <div class="logo">
-              <img src="assets/retratoModerno.jpg" alt="">
-          </div>
-    
-          <div class="name">
-              <input type="text" id="name" placeholder="Nombre">
-          </div>
-    
-          <div class="LastName">
-              <input type="text" id="LastName" placeholder="Apellido">
-          </div>
-    
-          <div class="email">
-              <input type="email" id="email" placeholder="Correo electronico">
-          </div>
-    
-          <div class="password">
-              <input type="password" id="password" placeholder="Contraseña">
-          </div>
-    
-          <div class="password-2">
-              <input type="password" id="password-2" placeholder="Confirmar Contraseña">
-          </div>
-    
-          <button  class="button">Registrate</button>
-    
-          <p class="login-link">Ya tienes cuenta, <a href="/login">¡Ingresa aqui!</a></p>
-          <p class="login-link"><a href="">Volver al inicio</a></p>
+    <form action="" [formGroup]="registerForm">
+        <div class="container">
+            <h1 class="h1">Registrate aqui!</h1>
+            <div class="logo">
+                <img src="assets/retratoModerno.jpg" alt="">
+            </div>
 
-      </div>
+            <div class="name" >
+                <input type="text" id="name" placeholder="Nombre" formControlName="nombre">
+            </div>
+            <div class="text-danger"
+                *ngIf="registerForm.controls['nombre'].invalid && (isFormSubmitted || registerForm.controls['nombre'].dirty || registerForm.controls['nombre'].touched)">
+                <span *ngIf="registerForm.controls['nombre'].errors?.['required']">El nombre es requerido</span>
+            </div>
+
+            <div class="LastName">
+                <input type="text" id="LastName" placeholder="Apellido" formControlName="apellido">
+            </div>
+            <div class="text-danger"
+                *ngIf="registerForm.controls['apellido'].invalid && (isFormSubmitted || registerForm.controls['apellido'].dirty || registerForm.controls['apellido'].touched)">
+                <span *ngIf="registerForm.controls['apellido'].errors?.['required']">El apellido es requerido</span>
+            </div>
+            <div class="LastName">
+                <input type="text" id="nickName" placeholder="Nombre de usuario" formControlName="nickName">
+            </div>
+            <div class="text-danger"
+                *ngIf="registerForm.controls['nickName'].invalid && (isFormSubmitted || registerForm.controls['nickName'].dirty || registerForm.controls['nickName'].touched)">
+                <span *ngIf="registerForm.controls['nickName'].errors?.['required']">El nombre de usuario es requerido</span>
+            </div>
+            <div class="email">
+                <input type="email" id="email" placeholder="Correo electronico"  formControlName="email">
+            </div>
+            <label *ngIf="isAlreadyRegistered" class="text-danger">El correo ya esta registrado</label>
+            <div class="text-danger" *ngIf="registerForm.controls['email'].invalid && (isFormSubmitted || registerForm.controls['email'].dirty || registerForm.controls['email'].touched)">
+                <span *ngIf="registerForm.controls['email'].errors?.['required']">El email es requerido</span>
+                <span *ngIf="registerForm.controls['email'].errors?.['email']">El email no es valido</span>
+            </div>
+            <div class="email">
+                <input type="text" id="direccion" placeholder="Direccion"  formControlName="direccion">
+            </div>
+            <div class="text-danger" *ngIf="registerForm.controls['direccion'].invalid && (isFormSubmitted || registerForm.controls['direccion'].dirty || registerForm.controls['direccion'].touched)">
+                <span *ngIf="registerForm.controls['direccion'].errors?.['required']">La direccion es requerida</span>
+            </div>
+            <div class="email">
+                <input type="text" id="telefono" placeholder="telefono"  formControlName="telefono">
+            </div>
+            <div class="text-danger" *ngIf="registerForm.controls['telefono'].invalid && (isFormSubmitted || registerForm.controls['telefono'].dirty || registerForm.controls['telefono'].touched)">
+                <span *ngIf="registerForm.controls['telefono'].errors?.['required']">El telefono es requerido</span>
+            </div>
+            <div class="password">
+                <input type="password" id="password" placeholder="Contraseña" formControlName="password">
+            </div>
+            <div class="text-danger" *ngIf="registerForm.controls['password'].invalid && (isFormSubmitted || registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
+                <span *ngIf="registerForm.controls['password'].errors?.['required']">La contraseña es requerida</span>
+                <span *ngIf="registerForm.controls['password'].errors?.['minlength']">La contraseña debe tener al menos 7 caracteres</span>
+
+            </div>
+            <div class="password-2">
+                <input type="password" id="password-2" placeholder="Confirmar Contraseña" formControlName="passwordConfirm">
+            </div>
+            <div class="text-danger">
+                <span *ngIf="registerForm?.errors?.['passwordMismatch'] || registerForm?.dirty">Las contraseñas no coinciden</span>
+
+            </div>
+            <button class="button" (click)="onRegister()">Registrate</button>
+
+            <p class="login-link">Ya tienes cuenta, <a href="/login">¡Ingresa aqui!</a></p>
+            <p class="login-link"><a href="">Volver al inicio</a></p>
+
+        </div>
     </form>
 
 </body>
-</html>
 
+</html>

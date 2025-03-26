@@ -17,7 +17,7 @@ export class LoginComponent {
   constructor( private router: Router, private authService: AuthService) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(8)])
+      password: new FormControl('', [Validators.required, Validators.minLength(7)])
     })
   }
 

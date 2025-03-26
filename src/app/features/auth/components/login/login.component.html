@@ -35,7 +35,7 @@
                     *ngIf="loginForm.controls['password'].invalid && (isFormSubmitted || loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
                     <span *ngIf="loginForm.controls['password'].errors?.['required']">La contraseña es requerida</span>
                     <span *ngIf="loginForm.controls['password'].errors?.['minlength']">La contraseña debe tener al menos
-                        8 caracteres</span>
+                        7 caracteres</span>
 
                 </div>
                 <button class="button" type="submit" (click)="onLogin()">Iniciar sesión</button>

@@ -11,8 +11,8 @@ export class RegisterService {
   private apiUrl = environment.apiUrl + "/usuarios"
   constructor(private httpClient: HttpClient) { }
 
-  register(nombre: String, apellido: String, nickName: String, email: String, direccion: String, telefono: Number ,password: String): Observable<any> {
-    const body = { nombre, apellido, nickName, email, direccion, telefono, password }
+  register(nombre: String, apellido: String, cedula: Number, nickName: String, email: String, direccion: String, telefono: Number ,password: String): Observable<any> {
+    const body = { nombre, apellido, cedula, nickName, email, direccion, telefono, password }
     return this.httpClient.post(this.apiUrl + '/registro', body).pipe(
       catchError( error => {
         console.error("Error al hacer la peticion en el registro" + error)

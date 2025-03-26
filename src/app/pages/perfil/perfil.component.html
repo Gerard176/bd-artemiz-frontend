@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <section class="principal-info">
+            <img class="imgUsuario" [src]="userData?.imgPerf" alt="imagen de usuario">
+            <div class="perf-cont">
+                <label><h5>{{userData?.nickName}}</h5></label>
+                <label class="letra-pequeña-azul">{{userData?.email}}</label>
+            </div>
+            <a href="/editarPerfil"><button type="button" class="editar-button" >Editar perfil</button></a>
+            <button type="button" class="eliminar-button">Eliminar perfil</button>
+
+        </section>
+        <label><h3>Datos personales</h3></label>
+        <section class="secondary-info">
+            <div class="identificacion">
+                <div class="campo">
+                    <i class="fa-solid fa-user" style="padding-top: 5px;"></i>
+                    <div class="info-container">
+                        <label for="" class="legend">Nombre</label>
+                        <label>{{userData?.nombre ?? "No registrado"}} </label>
+                    </div>
+                   
+
+                </div>
+                <div class="campo">
+                    <i class="fa-solid fa-user" style="padding-top: 5px;"></i>
+                    <div class="info-container">
+                        <label for="" class="legend">Apellido</label>
+                        <label>{{userData?.apellido ?? "No registrado"}} </label>
+                    </div>
+                   
+
+                </div>
+                <div class="campo">
+                    <i class="fa-solid fa-id-card" style="padding-top: 5px;"></i>
+                    <div class="info-container">
+                        <label for="" class="legend">Identificacion</label>
+                        <label>{{ userData?.cedula ?? "No registrada"}}</label>
+                    </div>
+                    
+                </div>
+            </div>
+            <hr>
+            <div class="campo">
+                <i class="fa-solid fa-location-dot" style="padding-top: 5px;"></i>
+                <div class="info-container">
+                    <label for="" class="legend">Direccion</label>
+                    <label for="">{{userData?.direccion}}</label>
+
+                </div>
+            </div>
+            <div class="campo">
+                <i class="fa-solid fa-phone" style="padding-top: 5px;"></i>
+                <div class="info-container">
+                    <label for="" class="legend">Telefono</label>
+                    <label for="">{{userData?.telefono}}</label>
+
+                </div>
+
+
+            </div>
+        </section>
+    </div>
+    
+
+</body>
+</html>

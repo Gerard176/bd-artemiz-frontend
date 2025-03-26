@@ -32,11 +32,18 @@
                 <span *ngIf="registerForm.controls['apellido'].errors?.['required']">El apellido es requerido</span>
             </div>
             <div class="LastName">
-                <input type="text" id="nickName" placeholder="Nombre de usuario" formControlName="nickName">
+                <input type="text"  placeholder="Nombre de usuario" formControlName="nickName">
             </div>
             <div class="text-danger"
                 *ngIf="registerForm.controls['nickName'].invalid && (isFormSubmitted || registerForm.controls['nickName'].dirty || registerForm.controls['nickName'].touched)">
                 <span *ngIf="registerForm.controls['nickName'].errors?.['required']">El nombre de usuario es requerido</span>
+            </div>
+            <div class="LastName">
+                <input type="text" placeholder="Cedula" formControlName="cedula">
+            </div>
+            <div class="text-danger"
+                *ngIf="registerForm.controls['cedula'].invalid && (isFormSubmitted || registerForm.controls['cedula'].dirty || registerForm.controls['cedula'].touched)">
+                <span *ngIf="registerForm.controls['cedula'].errors?.['required']">La cedula es requerida</span>
             </div>
             <div class="email">
                 <input type="email" id="email" placeholder="Correo electronico"  formControlName="email">

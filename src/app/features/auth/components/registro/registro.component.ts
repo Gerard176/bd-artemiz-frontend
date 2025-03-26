@@ -19,6 +19,7 @@ export class RegistroComponent {
     this.registerForm = new FormGroup({
       nombre: new FormControl('', [Validators.required]),
       apellido: new FormControl('', [Validators.required]),
+      cedula: new FormControl('', [Validators.required]),
       nickName: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       direccion: new FormControl('', [Validators.required]),
@@ -43,8 +44,8 @@ export class RegistroComponent {
   onRegister(): void {
     this.isFormSubmitted = true;
     if (this.registerForm.valid) {
-      const { nombre, apellido, nickName, email, direccion, telefono, password } = this.registerForm.value;
-      this.registerService.register(nombre, apellido, nickName, email, direccion, telefono, password).subscribe({
+      const { nombre, apellido, cedula, nickName, email, direccion, telefono, password } = this.registerForm.value;
+      this.registerService.register(nombre, apellido, cedula, nickName, email, direccion, telefono, password).subscribe({
         next: (res) => {
           console.log("Registro exitoso");
           this.authService.login(email, password).subscribe({

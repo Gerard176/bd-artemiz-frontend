@@ -1,0 +1,124 @@
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f3f2f2;
+    display: flex;
+    justify-content: center;
+    height: 90dvh;
+}
+
+
+label{
+    margin: 1px 10px;
+}
+
+.editar-button {
+    padding: 5px 15px;
+    margin: 0 5px;
+    background-color: #ac1c8c;
+    color: #fff;
+    justify-self: right;
+    border: none;
+    align-self: center;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.editar-button:hover {
+    background-color: #b64aaf;
+}
+
+.eliminar-button {
+    padding: 5px 15px;
+    margin: 0 5px;
+    background-color: #df1313;
+    color: #fff;
+    justify-self: right;
+    border: none;
+    align-self: center;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.eliminar-button:hover {
+    background-color: #a36745;
+}
+
+a{
+    align-self: center;
+}
+
+.imgUsuario{
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+}
+
+input{
+    width: 100%;
+    padding: 12px;
+    margin: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box; 
+}
+
+.letra-pequeña-azul{
+    color: rgb(0, 110, 255);
+    font-size: small;
+}
+
+.legend{
+    color: black;
+    font-size: large;
+    font-weight: 300;
+}
+
+.principal-info{
+    background-color: #fff;
+    padding: 30px;
+    margin: 20px 0;
+    display: flex;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.perf-cont{
+    display: flex;
+    flex-direction: column;
+    padding: 0 5px;
+}
+
+.secondary-info{
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.identificacion{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.campo{
+    display: flex;
+    padding: 0 25px;
+    margin: 5px 0;
+    max-width: 500px;
+}
+
+.info-container{
+    display: flex;
+    flex-direction: column;
+}

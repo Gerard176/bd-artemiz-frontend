@@ -4,7 +4,7 @@
         <ul>
             @if (isloggedIn) {
                 <li><img class="imgUsuario" [src]="userData?.imgPerf" alt="usuario"></li>
-                <li><label for="nombre">{{ userData?.nickName }}</label></li>
+                <li><a href="/perfil">{{ userData?.nickName }}</a></li>
                 <li><a href="/cart"><i class="fa-solid fa-cart-shopping" style="color: black;  width: 30px;"></i></a></li>
                 <li><a href=""><i class="fa-solid fa-house" style="color: black; width: 30px;"></i></a></li>
                 <li><a href="/login"  (click)="onLogout()"><i class="fa-solid fa-right-from-bracket" style="color: black; width: 30px;"></i></a></li>

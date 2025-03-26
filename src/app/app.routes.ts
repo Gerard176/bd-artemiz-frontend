@@ -3,6 +3,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { RegistroComponent } from './features/auth/components/registro/registro.component';
 import { LoginComponent } from './features/auth/components/login/login.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
+import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
 
 export const routes: Routes = [
     {
@@ -25,5 +27,14 @@ export const routes: Routes = [
         title: 'cart',
         component: CartComponent
     },
-    
+    {
+        path: 'perfil',
+        title: 'perfil',
+        component: PerfilComponent
+    },
+    {
+        path: 'editarPerfil',
+        title: 'editarPerfil',
+        component: EditarPerfilComponent
+    },
 ];

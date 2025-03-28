@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, tap, throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -9,7 +10,7 @@ import { catchError, Observable, tap, throwError } from 'rxjs';
 })
 export class AuthService {
   private apiUrl = environment.apiUrl + "/usuarios";
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
   login(email: string, password: string): Observable<any> {
     const body = { email, password };
@@ -24,8 +25,13 @@ export class AuthService {
     const token = this.getToken();
     const headers = new HttpHeaders().set('token', token || '')
     return this.httpClient.get<any>(`${this.apiUrl}/perfil`, { headers: headers }).pipe(
-      tap(res => {
-        console.log(res)
+      catchError(error =>{
+        console.log("Status:", error.status);
+        if (error.status == 401) {
+          this.logout();
+          this.router.navigate(['/']);
+        }
+        return throwError(() => error);
       }
 
       )
@@ -47,4 +53,7 @@ export class AuthService {
     localStorage.removeItem('authToken');
     // this.router.navigate(['/login']);
   }
+
+  
+
 }

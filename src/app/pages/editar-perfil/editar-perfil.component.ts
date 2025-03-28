@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RegisterService } from '../../core/services/register/register.service';
 import { AuthService } from '../../core/services/auth/auth.service';
 import { EditUserService } from '../../core/services/editUser/edit-user.service';
 
@@ -13,11 +12,13 @@ import { EditUserService } from '../../core/services/editUser/edit-user.service'
   styleUrl: './editar-perfil.component.css'
 })
 export class EditarPerfilComponent {
-editForm: FormGroup;
-isloggedIn: boolean = false;
-isFormSubmitted: boolean = false;
+  editForm: FormGroup;
+  isloggedIn: boolean = false;
+  isFormSubmitted: boolean = false;
+  selectedFile!: File;
+
   userData: any;
-  constructor(private authService: AuthService, private editUserService: EditUserService, private router: Router){
+  constructor(private authService: AuthService, private editUserService: EditUserService, private router: Router) {
     this.editForm = new FormGroup({
       nombre: new FormControl(''),
       apellido: new FormControl(''),
@@ -25,40 +26,24 @@ isFormSubmitted: boolean = false;
       direccion: new FormControl(''),
       telefono: new FormControl(''),
     });
-    this.isloggedIn =  authService.isLoggedIn();
+    this.isloggedIn = authService.isLoggedIn();
     if (this.isloggedIn) {
       this.getProfile();
-      console.log("hola");
+      console.log("hola desde el constructor de editar usuario");
     }
-     
-  }
-  validateFields(control: AbstractControl){
-    const nombre = this.userData?.nombre;
-    const apellido = this.userData?.apellido;
-    const nickName = this.userData?.nickName;
-    const direccion = this.userData?.direccion;
-    const telefono = this.userData?.telefono;
-
-    console.log(nombre,apellido,nickName,direccion,telefono);
-
-    control.get('nombre')?.setValue(nombre);
-    control.get('apellido')?.setValue(apellido);
-    control.get('nickName')?.setValue(nickName);
-    control.get('direccion')?.setValue(direccion);
-    control.get('telefono')?.setValue(telefono);
 
   }
 
-  onChange(): void{
+
+  onChange(): void {
     this.isFormSubmitted = true;
-    this.validateFields(this.editForm);
-    const cedula: Number = this.userData.cedula;
+    console.log(this.editForm.value);
+    const id: string = this.userData._id;
     if (this.editForm.valid) {
       const { nombre, apellido, nickName, direccion, telefono } = this.editForm.value;
-      this.editUserService.editUser(nombre, apellido, cedula, nickName, direccion, telefono).subscribe({
+      this.editUserService.editUser(nombre, apellido, id, nickName, direccion, telefono).subscribe({
         next: (res) => {
           console.log("Cambio de datos exitoso" + res);
-          this.router.navigate(['/perfil']);
         },
         error: (error) => {
           console.error("Error en el cambio de datos" + error);
@@ -66,17 +51,48 @@ isFormSubmitted: boolean = false;
       });
     }
   }
-  
 
-  getProfile(): void{
+
+  getProfile(): void {
     this.authService.getUserProfile().subscribe({
       next: (data) => {
         this.userData = data.data;
-        console.log(this.userData.imgPerf);
+        console.log(this.userData.imgPerf)
+        this.editForm.patchValue({
+          nombre: this.userData.nombre,
+          apellido: this.userData.apellido,
+          nickName: this.userData.nickName,
+          direccion: this.userData.direccion,
+          telefono: this.userData.telefono
+        });
       },
       error: (error) => {
         console.error("Error al obtener los datos del usuario", error)
       }
+    });
+  }
+
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0]; // Guardamos la imagen seleccionada
+    console.log(this.selectedFile);
+  }
+
+  // Enviar la nueva imagen al backend
+  updateProfileImage() {
+    if (!this.selectedFile) {
+      alert("Selecciona una imagen primero.");
+      return;
+    }
+    const id = this.userData._id;
+    const formData = new FormData();
+    formData.append("imgPerf", this.selectedFile);
+    console.log(formData.getAll("imgPerf"));
+    this.editUserService.updateProfileImage(formData, id).subscribe({
+      next: (res) => {
+        alert("Imagen actualizada con éxito.");
+        this.getProfile(); // Recargar la imagen actualizada
+      },
+      error: (error) => {console.error("Error al actualizar imagen", error)}
     });
   }
 }

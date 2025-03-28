@@ -14,8 +14,8 @@
                 <label class="letra-pequeña-azul">{{userData?.email}}</label>
             </div>
             <a href="/editarPerfil"><button type="button" class="editar-button" >Editar perfil</button></a>
-            <button type="button" class="eliminar-button">Eliminar perfil</button>
-
+            <a href=""><button type="button" class="eliminar-button" (click)="onDelete()">Eliminar perfil</button></a>
+            
         </section>
         <label><h3>Datos personales</h3></label>
         <section class="secondary-info">

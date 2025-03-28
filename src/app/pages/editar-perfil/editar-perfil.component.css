@@ -33,6 +33,22 @@ button:hover {
     background-color: #b64aaf;
 }
 
+.upload-button {
+    background-color: #ac1c8c;
+    color: #fff;
+    justify-self: right;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #b64aaf;
+}
+
 
 .imgUsuario{
     width: 60px;

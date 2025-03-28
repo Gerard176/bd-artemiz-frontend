@@ -15,7 +15,7 @@ export class HeaderComponent {
     this.isloggedIn =  authService.isLoggedIn();
     if (this.isloggedIn) {
       this.getProfile();
-      console.log("hola");
+      console.log("hola desde header");
     }
      
   }
@@ -23,7 +23,6 @@ export class HeaderComponent {
     this.authService.getUserProfile().subscribe({
       next: (data) => {
         this.userData = data.data;
-        console.log(this.userData.imgPerf);
       },
       error: (error) => {
         console.error("Error al obtener los datos del usuario", error)

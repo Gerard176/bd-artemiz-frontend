@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f3f2f2;
@@ -10,45 +10,66 @@ body {
 
 .banner {
     position: relative;
-    background-image: url("../../../../public/assets/banner.webp");
+    background-image: url("../../../../public/assets/bannerfondo.png");
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
-    font-size: larger;
+    background-color: #333;
     text-align: center;
-    padding: 100px 20px;
-    color: black;
+    padding: 120px 20px;
+    color: white;
 }
 
+.banner h1{
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
+}
+.banner p {
+    font-size: 1.25rem;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+}
 
 .btn {
-    display: inline-block;
     background-color: #ff6600;
     color: white;
     padding: 10px 20px;
+    border: none;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+.btn:hover {
+    background-color: #e65c00;
 }
 
 .productos {
     text-align: center;
-    padding: 20px;
+    padding: 60px 15px;
 }
 
 .grid {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
 .producto {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background: #fff;
+    padding: 20px;
+    width: 300px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+.producto:hover {
+    transform: translateY(-5px);
 }
 
 .producto img {
-    max-width: 100%;
-    border-radius: 5px;
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
 }

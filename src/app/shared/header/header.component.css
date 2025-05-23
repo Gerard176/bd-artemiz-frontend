@@ -1,16 +1,18 @@
 header {
-    background: linear-gradient(90deg, #b511cb, #7ea7ee); /* Gradiente lineal */
+    background-color: #7ea7ee;
     color: white;
-    display: flex;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     height: 70px;
+    display: flex;
 }
 
 nav {
     display: flex;
-    width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 0 100px;    
+    padding: 0 40px;
+    height: 100%;    
+    width: 100%;
 }
 
 
@@ -18,24 +20,36 @@ ul{
     list-style: none;
     display: flex;
     margin: 0;
+    gap: 15px;
+    align-items: center;
 }
 
 li{
-    margin: 10px 5px;
-    align-content: center;
+    margin: 0;
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .imgUsuario{
     width: 50px;
-    border-radius: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
 }
 
 a{
     color: white;
     text-decoration: none;
+    font-weight: 500;
+}
+a:hover {
+    text-decoration: underline;
+}
+i {
+    font-size: 1.25rem;
 }

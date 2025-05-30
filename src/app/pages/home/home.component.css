@@ -30,25 +30,6 @@ body {
     text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
 }
 
-.btn {
-    background-color: #ff6600;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
-}
-.btn:hover {
-    background-color: #e65c00;
-}
-
-.productos {
-    text-align: center;
-    padding: 60px 15px;
-}
-
 .grid {
     display: flex;
     justify-content: center;
@@ -56,7 +37,14 @@ body {
     gap: 30px;
 }
 
+.productos {
+    text-align: center;
+    padding: 60px 15px;
+    
+}
+
 .producto {
+    position: relative;
     background: #fff;
     padding: 20px;
     width: 300px;
@@ -72,4 +60,99 @@ body {
     width: 100%;
     border-radius: 12px;
     margin-bottom: 15px;
+}
+
+.producto p {
+    font-size: 20px;
+}
+
+.button-container {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 10px; 
+}
+
+.btn,
+.btn-res {
+  margin: 0 auto; 
+  width: fit-content;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.btn {
+  background-color: #ff6600;
+  color: white;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #e65c00;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-res {
+  background-color: transparent;
+  color: #ff6600;
+  border: 2px solid #ff6600;
+}
+
+.btn-res:hover {
+  background-color: #ff6600;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active,
+.btn-res:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background-color: #e65c00;
+}
+
+.icon-fav {
+  position: absolute; 
+  top: 10px; 
+  right: 10px; 
+  z-index: 5; /* Hace que el icono esté por encima de la img*/
+  border-radius: 50%; 
+  padding: 6px; 
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f2f2;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); /* Sombra */
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.icon-fav svg {
+  width: 24px; 
+  height: 24px; 
+  stroke: #ff6600; 
+  fill: none;
+  
+}
+
+.icon-fav:hover {
+  background-color: #f0f0f0; 
+  transform: scale(1.1); /* Ligeramente más grande */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); 
+}
+
+
+.icon-fav:active {
+  transform: scale(0.95); /* Simula el "presionar" */
+  background-color: #e0e0e0; 
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); 
 }

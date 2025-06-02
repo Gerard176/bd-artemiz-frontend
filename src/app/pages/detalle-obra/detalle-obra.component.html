@@ -1,0 +1,10 @@
+<div *ngIf="obra">
+  <img [src]="obra.img" [alt]="obra.nombre">
+  <h2>{{ obra.nombre }}</h2>
+  <p><strong>Autor:</strong> {{ obra.autor }}</p>
+  <p><strong>Descripción:</strong> {{ obra.descripcion }}</p>
+  <p><strong>Tamaño:</strong> {{ obra['tamaño'] }}</p>
+  <p><strong>Categoría:</strong> {{ obra.categoria }}</p>
+  <p><strong>Precio:</strong> ${{ obra.precio }}</p>
+</div>
+

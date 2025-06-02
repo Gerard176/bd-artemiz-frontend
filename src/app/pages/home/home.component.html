@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artemiz</title>
-</head>
+
 <body>
     
     <section class="banner">
@@ -16,151 +10,21 @@
         <h2>Destacados</h2>
         <br>
         <div class="grid">
-            <div class="producto">
-                <img src="assets/pinturabstracta.jpg" alt="Arte 1">
-                <h3>Pintura Abstracta</h3>
-                <p>$150.000</p>
-                <a href="#" class="btn">Comprar</a>
+           <div class="producto" *ngFor="let obra of obras">
+              <img [src]="obra.img" [alt]="obra.nombre" />
+              <h3>{{ obra.nombre }}</h3>
+              <p><strong>Autor:</strong> {{ obra.autor }}</p>
+              <p>{{ obra.descripcion }}</p>
+              <p><strong>Precio:</strong> ${{ obra.precio | number }}</p>
+             <div class="botones">
+              <a [routerLink]="['/detalle-obra', obra._id]" class="btn">Ver detalle</a>
+              <button class="btn" (click)="agregarAlCarrito(obra)">Comprar</button>
             </div>
-            <div class="producto">
-                <img src="assets/retratoModerno.jpg" alt="Arte 2">
-                <h3>Retrato Moderno</h3>
-                <p>$200.000</p>
-                <a href="#" class="btn">Comprar</a>
             </div>
-            <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 3">
-                <h3>Paisaje Colorido</h3>
-                <p>$180.000</p>
-                <a href="#" class="btn">Comprar</a>
-            </div>
-            <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 4">
-                <h3>Arte Minimalista</h3>
-                <p>$130.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
-              <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 5">
-                <h3>Collage Urbano</h3>
-                <p>$160.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
-              <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 6">
-                <h3>Acuarela de Naturaleza</h3>
-                <p>$170.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
-              <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 4">
-                <h3>Arte Minimalista</h3>
-                <p>$130.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
-              <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 5">
-                <h3>Collage Urbano</h3>
-                <p>$160.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
-              <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 6">
-                <h3>Acuarela de Naturaleza</h3>
-                <p>$170.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
-              <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 4">
-                <h3>Arte Minimalista</h3>
-                <p>$130.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
-              <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 5">
-                <h3>Collage Urbano</h3>
-                <p>$160.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
-              <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 6">
-                <h3>Acuarela de Naturaleza</h3>
-                <p>$170.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
-              <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 4">
-                <h3>Arte Minimalista</h3>
-                <p>$130.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
-              <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 5">
-                <h3>Collage Urbano</h3>
-                <p>$160.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
-              <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 6">
-                <h3>Acuarela de Naturaleza</h3>
-                <p>$170.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
-              <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 4">
-                <h3>Arte Minimalista</h3>
-                <p>$130.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
-              <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 5">
-                <h3>Collage Urbano</h3>
-                <p>$160.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
-              <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 6">
-                <h3>Acuarela de Naturaleza</h3>
-                <p>$170.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
-              <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 4">
-                <h3>Arte Minimalista</h3>
-                <p>$130.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
-              <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 5">
-                <h3>Collage Urbano</h3>
-                <p>$160.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
-              <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 6">
-                <h3>Acuarela de Naturaleza</h3>
-                <p>$170.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
-              <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 4">
-                <h3>Arte Minimalista</h3>
-                <p>$130.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
-              <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 5">
-                <h3>Collage Urbano</h3>
-                <p>$160.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
-              <div class="producto">
-                <img src="assets/paisajeColorido.jpg" alt="Arte 6">
-                <h3>Acuarela de Naturaleza</h3>
-                <p>$170.000</p>
-                <a href="#" class="btn">Comprar</a>
-              </div>
+             <p *ngIf="!obras || obras.length === 0" class="no-obras">
+        No hay obras disponibles para mostrar.
+      </p>
+             
         </div>
     </section>
 </body>
-</html>

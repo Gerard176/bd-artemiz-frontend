@@ -5,6 +5,7 @@ import { RegistroComponent } from './features/auth/components/registro/registro.
 import { LoginComponent } from './features/auth/components/login/login.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
+import { DetalleObraComponent } from './pages/detalle-obra/detalle-obra.component';
 
 export const routes: Routes = [
     {
@@ -37,4 +38,9 @@ export const routes: Routes = [
         title: 'editarPerfil',
         component: EditarPerfilComponent
     },
+    {
+        path: 'detalle-obra/:id',
+        title: 'detalleObra',
+        component: DetalleObraComponent
+    }
 ];

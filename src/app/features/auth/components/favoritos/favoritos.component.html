@@ -1,0 +1,16 @@
+<section class="favoritos-container">
+  <h2>Mis Favoritos</h2>
+
+  <div *ngIf="favoritos.length > 0; else noFavoritos">
+    <div *ngFor="let obra of favoritos" class="obra">
+      <img [src]="obra.imagen" alt="{{ obra.nombre }}">
+      <h3>{{ obra.nombre }}</h3>
+      <p>{{ obra.descripcion }}</p>
+      <p class="precio">{{ obra.precio | currency: 'COP':'symbol':'1.0' }}</p>
+    </div>
+  </div>
+
+  <ng-template #noFavoritos>
+    <p>No tienes obras favoritas aún.</p>
+  </ng-template>
+</section>

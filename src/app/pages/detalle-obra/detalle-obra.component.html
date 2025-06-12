@@ -1,10 +1,128 @@
-<div *ngIf="obra">
-  <img [src]="obra.img" [alt]="obra.nombre">
-  <h2>{{ obra.nombre }}</h2>
-  <p><strong>Autor:</strong> {{ obra.autor }}</p>
-  <p><strong>Descripción:</strong> {{ obra.descripcion }}</p>
-  <p><strong>Tamaño:</strong> {{ obra['tamaño'] }}</p>
-  <p><strong>Categoría:</strong> {{ obra.categoria }}</p>
-  <p><strong>Precio:</strong> ${{ obra.precio }}</p>
+<!--<div *ngIf="obra" class="detalle-container">
+  <div class="detalle-izquierda">
+    <img [src]="obra.img" [alt]="obra.nombre">
+  </div>
+  <div class="detalle-derecha">
+    <h2>{{ obra.nombre }}</h2>
+    <p><strong>Autor:</strong> {{ obra.autor }}</p>
+    <p><strong>Descripción:</strong> {{ obra.descripcion }}</p>
+    <p><strong>Tamaño:</strong> {{ obra['tamaño'] }}</p>
+    <p><strong>Categoría:</strong> {{ obra.categoria }}</p>
+    <p><strong>Precio:</strong> ${{ obra.precio }}</p>
+  </div>
+</div>-->
+
+<!-- FORMULARIO DE NUEVA RESEÑA -->
+<!--<div class="resena-formulario">
+  <h3>Agregar una reseña</h3>
+
+  <textarea [(ngModel)]="nuevaResena.contenido" placeholder="Escribe tu reseña..."></textarea>
+
+  <label>Valoración:
+    <select [(ngModel)]="nuevaResena.valoracion">
+      <option [ngValue]="null" disabled selected>Selecciona calificación</option>
+      <option *ngFor="let valor of [1,2,3,4,5]" [value]="valor">{{ valor }} ⭐</option>
+    </select>
+  </label>
+
+  <button (click)="enviarResena()" [disabled]="enviando || !nuevaResena.contenido || !nuevaResena.valoracion">
+    {{ enviando ? 'Enviando...' : 'Enviar reseña' }}
+  </button>
+
+  <p *ngIf="mensaje" class="mensaje">{{ mensaje }}</p>
+</div>-->
+
+<!-- RESEÑAS EXISTENTES -->
+<!--<div class="resenas-container" *ngIf="resenas.length > 0">
+  <h3>Reseñas</h3>
+  <div *ngFor="let resena of resenas" class="resena">
+    <div class="resena-usuario">
+      <img [src]="resena.usuario.img" alt="usuario" class="avatar">
+      <div>
+        <strong>{{ resena.usuario.nombre }}</strong>
+        <span>{{ resena.usuario.email }}</span>
+      </div>
+    </div>
+    <p class="contenido">{{ resena.contenido }}</p>
+    <p><strong>Valoración:</strong> {{ resena.valoracion }} ⭐</p>
+    <p><strong>Fecha:</strong> {{ resena.fecha | date:'mediumDate' }}</p>
+  </div>
+</div> -->
+<div *ngIf="obra" class="detalle-container">
+  <div class="detalle-izquierda">
+    <img [src]="obra.img" [alt]="obra.nombre">
+  </div>
+  <div class="detalle-derecha">
+    <h2>{{ obra.nombre }}</h2>
+    <p><strong>Autor:</strong> {{ obra.autor }}</p>
+    <p><strong>Descripción:</strong> {{ obra.descripcion }}</p>
+    <p><strong>Tamaño:</strong> {{ obra['tamaño'] }}</p>
+    <p><strong>Categoría:</strong> {{ obra.categoria }}</p>
+    <p><strong>Precio:</strong> ${{ obra.precio }}</p>
+  </div>
 </div>
 
+<!-- FORMULARIO DE NUEVA RESEÑA -->
+<div class="resena-formulario" *ngIf="!miResena && !editando">
+  <h3>Agregar una reseña</h3>
+
+  <textarea [(ngModel)]="nuevaResena.contenido" placeholder="Escribe tu reseña..."></textarea>
+
+  <label>Valoración:
+    <select [(ngModel)]="nuevaResena.valoracion">
+      <option [ngValue]="null" disabled selected>Selecciona calificación</option>
+      <option *ngFor="let valor of [1,2,3,4,5]" [value]="valor">{{ valor }} ⭐</option>
+    </select>
+  </label>
+
+  <button (click)="enviarResena()" [disabled]="enviando || !nuevaResena.contenido || !nuevaResena.valoracion">
+    {{ enviando ? 'Enviando...' : 'Enviar reseña' }}
+  </button>
+
+  <p *ngIf="mensaje" class="mensaje">{{ mensaje }}</p>
+</div>
+
+<!-- RESEÑA DEL USUARIO ACTUAL -->
+<div *ngIf="miResena && !editando" class="resena-usuario-propia">
+  <h3>Tu reseña</h3>
+  <p>{{ miResena.contenido }}</p>
+  <p><strong>Valoración:</strong> {{ miResena.valoracion }} ⭐</p>
+  <button (click)="activarEdicion()">Editar reseña ✏️</button>
+  <button (click)="eliminarResena()">Eliminar reseña 🗑️</button>
+  <p *ngIf="mensaje" class="mensaje">{{ mensaje }}</p>
+</div>
+
+<!-- FORMULARIO DE EDICIÓN -->
+<div *ngIf="editando" class="resena-editar">
+  <h3>Editar tu reseña</h3>
+
+  <textarea [(ngModel)]="contenidoEditado" placeholder="Edita tu reseña..."></textarea>
+
+  <label>Valoración:
+    <select [(ngModel)]="valoracionEditada">
+      <option *ngFor="let valor of [1,2,3,4,5]" [value]="valor">{{ valor }} ⭐</option>
+    </select>
+  </label>
+
+  <button (click)="guardarEdicion()">Guardar cambios ✔️</button>
+  <button (click)="cancelarEdicion()">Cancelar ❌</button>
+
+  <p *ngIf="mensaje" class="mensaje">{{ mensaje }}</p>
+</div>
+
+<!-- OTRAS RESEÑAS -->
+<div class="resenas-container" *ngIf="resenas.length > 0">
+  <h3>Otras reseñas</h3>
+  <div *ngFor="let resena of resenas" class="resena">
+    <div class="resena-usuario">
+      <img [src]="resena.usuario.img" alt="usuario" class="avatar">
+      <div>
+        <strong>{{ resena.usuario.nombre }}</strong>
+        <span>{{ resena.usuario.email }}</span>
+      </div>
+    </div>
+    <p class="contenido">{{ resena.contenido }}</p>
+    <p><strong>Valoración:</strong> {{ resena.valoracion }} ⭐</p>
+    <p><strong>Fecha:</strong> {{ resena.fecha | date:'mediumDate' }}</p>
+  </div>
+</div>

@@ -5,14 +5,14 @@ import { map } from 'rxjs/operators';
 import { HttpParams } from '@angular/common/http';
 
 export interface Obra {
-  _id: string;
+   _id: string;
   nombre: string;
+  autor: string;
+  descripcion: string;
   tamaño: string;
   categoria: string;
-  autor: string;
-  img: string;
   precio: number;
-  descripcion: string;
+  img: string;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -29,9 +29,13 @@ export class ObrasService {
   if (params?.categoria) httpParams = httpParams.set('categoria', params.categoria);
   if (params?.autor) httpParams = httpParams.set('autor', params.autor);
   if (params?.tamaño) httpParams = httpParams.set('tamaño', params.tamaño);
+  console.log('Enviando parámetros:', httpParams.toString());
 
   return this.http.get<{ data: Obra[] }>(this.apiUrl, { params: httpParams }).pipe(
-    map(response => response.data)
+  map(response => {
+    console.log('Respuesta del backend:', response);
+    return response.data;
+  })
   );
 }
    // Método para obtener obra por id 

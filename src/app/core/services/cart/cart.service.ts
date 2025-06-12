@@ -1,34 +1,42 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Obra } from '../obras/obras.service'; 
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private cartItems: Obra[] = [];
-  private cartSubject = new BehaviorSubject<Obra[]>([]);
+  private apiUrl = 'http://localhost:5000/api/carrito';
 
-  cart$ = this.cartSubject.asObservable();
+  constructor(private http: HttpClient) {}
 
-  constructor() {}
-
-  agregarAlCarrito(obra: Obra) {
-    this.cartItems.push(obra);
-    this.cartSubject.next(this.cartItems);
+  private getAuthHeaders(): HttpHeaders {
+    const token = localStorage.getItem('authToken') || '';
+    return new HttpHeaders().set('token', token);
   }
 
-  eliminarDelCarrito(id: string) {
-    this.cartItems = this.cartItems.filter(item => item._id !== id);
-    this.cartSubject.next(this.cartItems);
+  agregarAlCarrito(item: { idUsuario: string; idItem: string }): Observable<any> {
+    return this.http.post(`${this.apiUrl}/add`, item, {
+      headers: this.getAuthHeaders()
+    });
   }
 
-  obtenerCarrito(): Obra[] {
-    return [...this.cartItems];
+  obtenerCarrito(idUsuario: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${idUsuario}`, {
+      headers: this.getAuthHeaders()
+    });
   }
 
-  vaciarCarrito() {
-    this.cartItems = [];
-    this.cartSubject.next(this.cartItems);
+  eliminarDelCarrito(idItem: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/delete/${idItem}`, {
+      headers: this.getAuthHeaders()
+    });
   }
+
+ actualizarCantidad(obraId: string, cantidad: number): Observable<any> {
+  const token = localStorage.getItem('authToken') || '';
+  const headers = new HttpHeaders().set('token', token);
+  return this.http.put(`${this.apiUrl}/updateCantidad/${obraId}`, { cantidad }, { headers });
+}
+
 }

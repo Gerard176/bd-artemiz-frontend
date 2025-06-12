@@ -1,36 +1,275 @@
-div {
-  max-width: 600px;
-  margin: 20px auto;
+.detalle-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 1000px;
+  margin: 30px auto;
   padding: 20px;
   background-color: #fafafa;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
+  gap: 30px;
 }
 
-img {
-  display: block;
-  max-width: 100%;
+.detalle-izquierda {
+  flex: 1;
+}
+
+.detalle-izquierda img {
+  width: 100%;
   height: auto;
-  border-radius: 6px;
-  margin-bottom: 15px;
+  border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-h2 {
+.detalle-derecha {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.detalle-derecha h2 {
   margin-bottom: 15px;
   font-size: 28px;
   color: #222;
-  text-align: center;
 }
 
-p {
+.detalle-derecha p {
   font-size: 16px;
   line-height: 1.5;
   margin-bottom: 10px;
 }
 
-p strong {
+.detalle-derecha p strong {
   color: #555;
 }
+
+/* FORMULARIO DE RESEÑA */
+.resena-formulario {
+  max-width: 1000px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.resena-formulario h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.resena-formulario textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.resena-formulario label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.resena-formulario select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+
+.resena-formulario button {
+  background-color: #0077cc;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.resena-formulario button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.resena-formulario .mensaje {
+  margin-top: 10px;
+  font-size: 14px;
+  color: green;
+}
+
+/* RESEÑAS EXISTENTES */
+.resenas-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.resenas-container h3 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #444;
+}
+
+.resena {
+  border-top: 1px solid #ddd;
+  padding: 15px 0;
+}
+
+.resena:first-child {
+  border-top: none;
+}
+
+.resena-usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.resena-usuario img.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ccc;
+}
+
+.resena-usuario strong {
+  display: block;
+  font-weight: bold;
+  color: #333;
+}
+
+.resena-usuario span {
+  font-size: 12px;
+  color: #777;
+}
+
+.resena .contenido {
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #444;
+}
+/* RESEÑA DEL USUARIO ACTUAL */
+.resena-usuario-propia {
+  max-width: 1000px;
+  margin: 30px auto;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-left: 5px solid #0077cc;
+}
+
+.resena-usuario-propia h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #0077cc;
+}
+
+.resena-usuario-propia p {
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.resena-usuario-propia button {
+  background-color: #0077cc;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.resena-usuario-propia button:hover {
+  background-color: #005fa3;
+}
+
+.resena-usuario-propia .mensaje {
+  margin-top: 10px;
+  font-size: 14px;
+  color: green;
+}
+
+/* FORMULARIO DE EDICIÓN DE RESEÑA */
+.resena-editar {
+  max-width: 1000px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-left: 5px solid #f39c12;
+}
+
+.resena-editar h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #f39c12;
+}
+
+.resena-editar textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.resena-editar label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.resena-editar select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+
+.resena-editar button {
+  background-color: #f39c12;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.resena-editar button:hover {
+  background-color: #d87d0e;
+}
+
+.resena-editar .mensaje {
+  margin-top: 10px;
+  font-size: 14px;
+  color: green;
+}
+

@@ -26,7 +26,7 @@ export class AppComponent {
   }
    showHeader(): boolean {
     // Rutas donde quieres mostrar el header
-    const rutasConHeader = ['/', '/cart', '/perfil', '/editarPerfil', '/detalle-obra'];
+    const rutasConHeader = ['/', '/cart', '/perfil', '/editarPerfil', '/detalle-obra', '/favoritos'];
     // Para detalle-obra con id, solo verifica si la ruta empieza con /detalle-obra
     if (this.currentRoute.startsWith('/detalle-obra')) return true;
 

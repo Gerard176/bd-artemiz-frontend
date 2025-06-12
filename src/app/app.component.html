@@ -1,6 +1,11 @@
-<main>
-    @if (currentRoute == "/" || currentRoute == "/cart" || currentRoute == "/perfil" || currentRoute == "/editarPerfil" || currentRoute == "/detalle-obra") {
+<!--<main>
+    @if (currentRoute == "/" || currentRoute == "/cart" || currentRoute == "/perfil" || currentRoute == "/editarPerfil" || currentRoute == "/detalle-obra/:id") {
         <app-header/>
     }
     <router-outlet></router-outlet>
-</main>
+</main> -->
+
+
+    <app-header *ngIf="showHeader()"></app-header>
+<router-outlet></router-outlet>
+

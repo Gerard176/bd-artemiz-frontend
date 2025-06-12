@@ -20,6 +20,9 @@
               <a [routerLink]="['/detalle-obra', obra._id]" class="btn">Ver detalle</a>
               <button class="btn" (click)="agregarAlCarrito(obra)">Comprar</button>
             </div>
+             <button (click)="toggleFavorito(obra._id)" class="btn-favorito">
+      <i [ngClass]="esFavorito(obra._id) ? 'fa-solid fa-heart text-red' : 'fa-regular fa-heart text-gray'"></i>
+    </button>
             </div>
              <p *ngIf="!obras || obras.length === 0" class="no-obras">
         No hay obras disponibles para mostrar.

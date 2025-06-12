@@ -115,3 +115,6 @@ body {
   width: 110px; /* o el valor que prefieras */
   text-align: center;
 }
+.text-red { color: red; }
+.text-gray { color: gray; }
+.btn-favorito { background: transparent; border: none; cursor: pointer; font-size: 1.5rem; }

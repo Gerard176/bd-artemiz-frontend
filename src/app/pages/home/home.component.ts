@@ -40,9 +40,8 @@ export class HomeComponent {
   loadObras() {
     this.obrasService.getObras().subscribe({
       next: (data) => {
-        
         this.obras = data;
-        console.log('Cantidad de obras recibidas:', this.obras.length);
+        console.log(this.obras);
         this.loading = false;
       },
       error: (err) => {
@@ -101,7 +100,7 @@ export class HomeComponent {
       alert('Debes iniciar sesión para agregar a favoritos');
       return;
     }
-
+    console.log(idObra, idUsuario);
     if (this.esFavorito(idObra)) {
       this.favoritosService.eliminarFavorito(idObra).subscribe({
         next: () => {

@@ -15,22 +15,17 @@ export class FavoritosComponent implements OnInit {
   favoritos: any[] = [];
   loading = true;
   error: string | null = null;
-  idUsuario: string | null = null;
+  idUsuario: string ="";
 
   constructor(private favoritosService: FavoritosService) {}
 
   ngOnInit() {
-    this.idUsuario = localStorage.getItem('userId');
-    if (this.idUsuario) {
-      this.cargarFavoritos();
-    } else {
-      this.loading = false;
-      this.error = "Debes iniciar sesión para ver tus favoritos";
-    }
+    this.cargarFavoritos()
   }
 
   cargarFavoritos() {
-    this.favoritosService.obtenerFavoritosConObras(this.idUsuario!).subscribe({
+    console.log(this.idUsuario);
+    this.favoritosService.obtenerFavoritos(this.idUsuario!).subscribe({
       next: (res) => {
         this.favoritos = res.data;
         this.loading = false;
@@ -52,4 +47,5 @@ export class FavoritosComponent implements OnInit {
       }
     });
   }
+  
 }

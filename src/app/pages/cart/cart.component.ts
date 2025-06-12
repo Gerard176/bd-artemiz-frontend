@@ -55,6 +55,7 @@ export class CartComponent implements OnInit {
   this.cartService.actualizarCantidad(obraId, cantidad).subscribe({
     next: (res) => {
       const item = this.carrito.find(i => i._id === obraId);
+      console.log(item)
       if (item) {
         item.cantidad = res.item.cantidad;
         item.subtotal = res.item.subtotal;
